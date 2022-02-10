@@ -1,0 +1,39 @@
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.0;
+
+contract localvar{
+/*
+    Values of these variables are present till 
+    the function executes and it cannot be accessed 
+    outside that function. 
+    This type of variable is usually used to store temporary values.
+
+    state variables stores in block while local variables stores in local temporary memory
+
+*/
+ // state variables
+ 
+  uint public age;
+  bool public b;
+  address public newadd;
+
+
+   function fun(uint _x,bool _y,address _z) public returns(uint,bool){  // take x,y,z as input
+
+    uint i=29;  
+    bool b1=true;
+
+
+       i+=29;
+       b1=false;
+
+         age=_x;
+         b=_y;
+         newadd=_z;
+
+         return (i,b1);
+   }
+   
+
+}
