@@ -1,0 +1,48 @@
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.0;
+
+contract viewandpurefunction{
+
+    uint public age=90;
+
+//view cannot modify state, but can look it up(read)
+
+    function viewfunction() public view returns(uint){   //only read
+        return age;    // read age=90
+    }
+
+
+/*
+pure does not view nor modify state. i.e. it can only use 
+what is provided to it to run. 
+ pure is even more strict, indicating that it will not even read the storage state(data declared outside the function)
+
+ pure function not used values declare outside the functiom
+
+ lowest gas in pure function
+ */
+
+    function purefun1() public pure returns(uint){   
+        return 44;      // print 44
+    }
+     
+     function purefun2(uint _x) public pure returns(uint){   
+         return _x;     // print whatever is given as input
+     }
+
+
+
+   //simple function can modefify the value  , never returns anything , use to update memory data(data declare outside the function)
+
+     function simplefun() public {    // simple function , highest gas
+         age=age+27;   // modefy age to age + 27
+     }
+
+     function dummy() public view returns (uint){
+         return age+10;
+     }
+
+      
+
+}
