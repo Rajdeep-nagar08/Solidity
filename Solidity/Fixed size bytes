@@ -1,0 +1,40 @@
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.0;
+
+contract FixedSizeBytes{
+   
+   /* bytes similar to array, but in array by default value in 0 (uint)
+   in bytes , it stores hexadecimal values
+
+   i box= 1 byte
+
+   1 byte= 8bits
+   1 hexadecimal degit =4 bits
+
+   So  1 byte = 1 box= 2 hexadecimal digit  (digits =0 to 9)
+   */
+     
+     bytes3 public temp1;  // 3 box = 6 digits , size=3 (fixed size)
+
+     bytes7 public temp2;   // 7 box = 14 digits
+
+ // we already knows3 ways to insert values, during declaration, using constructor , using function
+
+     function setValue() public{
+         temp1="abc";   // stores in hexadecimal forms => 61 62 63
+         temp2="pq12rst";
+
+     }
+
+       function getdegit() public view returns(bytes1){  // return 1 box => bytes 1
+           
+           return temp1[1];  // return 62
+
+       }
+
+        function getlen2() public view returns(uint){
+            return temp2.length;
+        }
+
+  }
