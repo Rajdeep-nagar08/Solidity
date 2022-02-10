@@ -1,0 +1,21 @@
+pragma solidity 0.5.1;
+
+contract myContract {
+
+
+    mapping(address=>uint256) public balances;   // address=> balance
+    
+    address payable wallet;  // wants to send ether to this address,wallet (deploy=>address) from buy token address
+    constructor(address payable wlt) public {
+        wallet=wlt;
+    }
+
+    function buyToken()  public payable {
+    // buy one ether
+     balances[msg.sender]++;  // msg.sender= address of deployer
+
+    // send ether to the wallet
+     wallet.transfer(msg.value);    //msg.value= amount of deployer
+
+    }
+}
