@@ -1,1 +1,1 @@
-# BasicSolidity
+#Smart contract in Solidity
